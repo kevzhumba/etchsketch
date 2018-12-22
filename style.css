@@ -1,0 +1,15 @@
+#drawingboard{
+  height: 640px;
+  width: 640px;
+  position: absolute;
+  left:50%;
+  margin-left: -320px;
+  display: grid;
+ /* column-count:16;
+  //grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto ;*/
+}
+#reset{
+  position: absolute;
+  width:50px;
+  height:50px;
+}
