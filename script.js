@@ -52,15 +52,21 @@ function updateColor(newColor) {
   }
   color = newColor
 }
+
 const colors = Array.from(document.querySelectorAll(".color"));
 for (i = 0; i < colors.length; i++) {
-  if ((colors[i]).textContent == " Erase ") {
-    (colors[i]).addEventListener("click", (e) => updateColor("white"));
+  let currColor = colors[i];
+  if (currColor.textContent.trim() == "Erase") {
+    currColor.addEventListener("click", (e) => updateColor("white"));
+    currColor.style.border = "auto";
   }
   else {
-    (colors[i]).addEventListener("click", (e) => updateColor(e.target.textContent.trim().toLowerCase()))
+    currColor.addEventListener("click", (e) => updateColor(currColor.textContent));
+    currColor.style.backgroundColor = currColor.textContent;
+    currColor.style.color = currColor.textContent;
   }
 }
+
 const button = document.querySelector("Button");
 button.addEventListener("click", (e) => buttonListen());
 generateBoard(16);
