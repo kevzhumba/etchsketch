@@ -1,3 +1,4 @@
+let color = "black";
 function generateBoard(size) {
   const board = document.querySelector("#drawingboard");
   for (i = 0; i < size * size; i++) {
@@ -19,7 +20,7 @@ function generateBoard(size) {
   const grid = Array.from(document.querySelectorAll(".grid"));
   for (i = 0; i < grid.length; i++) {
     (grid[i]).addEventListener("mouseenter", function (e) {
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = color;
     })
   }
 }
@@ -39,9 +40,32 @@ function buttonListen() {
   }
 }
 
+function updateColor(newColor) {
+  const grid = Array.from(document.querySelectorAll(".grid"));
+  for (i = 0; i < grid.length; i++) {
+    /*(grid[i]).removeEventListener("mouseenter", function (e) {
+      e.target.style.backgroundColor = color;
+    });*/
+    (grid[i]).addEventListener("mouseenter", function (e) {
+      e.target.style.backgroundColor = newColor;
+    });
+  }
+  color = newColor
+}
+const colors = Array.from(document.querySelectorAll(".color"));
+for (i = 0; i < colors.length; i++) {
+  if ((colors[i]).textContent == " Erase ") {
+    (colors[i]).addEventListener("click", (e) => updateColor("white"));
+  }
+  else {
+    (colors[i]).addEventListener("click", (e) => updateColor(e.target.textContent.trim().toLowerCase()))
+  }
+}
 const button = document.querySelector("Button");
 button.addEventListener("click", (e) => buttonListen());
 generateBoard(16);
+
+
 
 /*const grid = Array.from(document.querySelectorAll(".grid"));
 for (i = 0; i < grid.length; i++) {

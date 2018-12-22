@@ -1,3 +1,6 @@
+body{
+  font-family: arial;
+}
 #drawingboard{
   height: 640px;
   width: 640px;
@@ -9,14 +12,18 @@
   //grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto ;*/
 }
 #reset{
-  position: absolute;
   width:50px;
   height:50px;
 }
-
 h1{
   text-align: center;
 }
+.color{
+  width :50px;
+  height:50px;
+}
 #buttons{
-  display:inline-block;
+  display:inline-grid;
+  width: 100px;
+  height: 320px;
 }
