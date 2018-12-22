@@ -16,6 +16,12 @@ function generateBoard(size) {
     div.style.display = "inline";
     board.appendChild(div);
   }
+  const grid = Array.from(document.querySelectorAll(".grid"));
+  for (i = 0; i < grid.length; i++) {
+    (grid[i]).addEventListener("mouseenter", function (e) {
+      e.target.style.backgroundColor = "black";
+    })
+  }
 }
 
 
@@ -24,22 +30,24 @@ function buttonListen() {
   if (size > 128 || size < 16) {
     alert("Not a valid size!")
   }
-  let board = document.querySelector("#drawingboard");
-  while (board.hasChildNodes()) {
-    board.removeChild(board.lastChild);
+  else {
+    let board = document.querySelector("#drawingboard");
+    while (board.hasChildNodes()) {
+      board.removeChild(board.lastChild);
+    }
+    generateBoard(size);
   }
-  generateBoard(size);
 }
 
 const button = document.querySelector("Button");
 button.addEventListener("click", (e) => buttonListen());
 generateBoard(16);
 
-const grid = Array.from(document.querySelectorAll(".grid"));
+/*const grid = Array.from(document.querySelectorAll(".grid"));
 for (i = 0; i < grid.length; i++) {
   (grid[i]).addEventListener("mouseenter", function (e) {
-    e.target.style.backgroundColor = "black";
-  })
-}
+    e.target.style.backgroundColor = "black";*
+  })*/
+
 
 
