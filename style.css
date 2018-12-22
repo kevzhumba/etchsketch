@@ -8,8 +8,6 @@ body{
   left:50%;
   margin-left: -320px;
   display: grid;
- /* column-count:16;
-  //grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto ;*/
 }
 #reset{
   width:50px;

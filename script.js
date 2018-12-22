@@ -1,4 +1,8 @@
-let color = "black";
+let color = "black"; //color of the current pen
+
+/** generateBoard(size) creates a etch a sketch board of with size number of 
+ *  rows and size number of columns.
+*/
 function generateBoard(size) {
   const board = document.querySelector("#drawingboard");
   for (i = 0; i < size * size; i++) {
@@ -25,7 +29,7 @@ function generateBoard(size) {
   }
 }
 
-
+/** buttonListen() is the action that occurs when you click the Reset button */
 function buttonListen() {
   let size = prompt("How big of a board? Enter a number between 16 and 128");
   if (size > 128 || size < 16) {
@@ -40,12 +44,10 @@ function buttonListen() {
   }
 }
 
+/** updateColor(newColor) updates the drawing color to newColor */
 function updateColor(newColor) {
   const grid = Array.from(document.querySelectorAll(".grid"));
   for (i = 0; i < grid.length; i++) {
-    /*(grid[i]).removeEventListener("mouseenter", function (e) {
-      e.target.style.backgroundColor = color;
-    });*/
     (grid[i]).addEventListener("mouseenter", function (e) {
       e.target.style.backgroundColor = newColor;
     });
@@ -54,6 +56,8 @@ function updateColor(newColor) {
 }
 
 const colors = Array.from(document.querySelectorAll(".color"));
+
+// Adds events for all the drawing and erase buttons
 for (i = 0; i < colors.length; i++) {
   let currColor = colors[i];
   if (currColor.textContent.trim() == "Erase") {
@@ -67,17 +71,10 @@ for (i = 0; i < colors.length; i++) {
   }
 }
 
+//Adds event for the reset button
 const button = document.querySelector("Button");
 button.addEventListener("click", (e) => buttonListen());
 generateBoard(16);
-
-
-
-/*const grid = Array.from(document.querySelectorAll(".grid"));
-for (i = 0; i < grid.length; i++) {
-  (grid[i]).addEventListener("mouseenter", function (e) {
-    e.target.style.backgroundColor = "black";*
-  })*/
 
 
 
